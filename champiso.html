@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAMPISO - La Force Naturelle | Leader Africain du Bien-être</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --vert-imperial: #2E7D32;
+            --vert-menthe: #4CAF50;
+            --or-prestige: #C9A961;
+            --beige-terre: #D4A574;
+            --rouge-energie: #F44336;
+            --bleu-ciel: #00BCD4;
+            --jaune-soleil: #FFEB3B;
+            --orange-solaire: #FF9800;
+            --noir: #1A1A1A;
+            --blanc: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--noir);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(46, 125, 50, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s;
+        }
+
+        nav.scrolled {
+            padding: 0.7rem 5%;
+            background: rgba(46, 125, 50, 1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-circle {
+            width: 60px;
+            height: 60px;
+            background: var(--beige-terre);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--blanc);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .logo-circle:hover {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .mushroom-icon {
+            font-size: 2rem;
+            color: var(--vert-imperial);
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--blanc);
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 0.75rem;
+            color: var(--or-prestige);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--blanc);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--or-prestige);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background: var(--or-prestige);
+            color: var(--noir);
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 900;
+            transition: all 0.3s;
+            border: 2px solid var(--or-prestige);
+        }
+
+        .cta-btn:hover {
+            background: transparent;
+            color: var(--or-prestige);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(201, 169, 97, 0.4);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            margin-top: 90px;
+            min-height: 95vh;
+            background: linear-gradient(135deg, var(--vert-imperial) 0%, var(--vert-menthe) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 3rem 5%;
+        }
+
+		.hero::before {
+			content: '';
+			position: absolute;
+			width: 400px;
+			height: 400px;
+			background-image: url('back.ico');
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			opacity: 0.08; /* Un peu plus visible */
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			animation: pulse 10s ease-in-out infinite; /* Plus lent */
+			z-index: 1;
+		}
+
+		@keyframes pulse {
+			0% { 
+				transform: translate(-50%, -50%) scale(0.9);
+				opacity: 0.05;
+			}
+			50% { 
+				transform: translate(-50%, -50%) scale(1.15); /* Plus grand */
+				opacity: 0.12; /* Plus visible au pic */
+			}
+			100% { 
+				transform: translate(-50%, -50%) scale(0.9);
+				opacity: 0.05;
+			}
+		}
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--blanc);
+            z-index: 10;
+            max-width: 1000px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            line-height: 1.1;
+        }
+
+        .hero-tagline {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--or-prestige);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--or-prestige);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 900;
+            border-radius: 35px;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            border: 3px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--or-prestige);
+            color: var(--noir);
+            border-color: var(--or-prestige);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(201, 169, 97, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--blanc);
+            border-color: var(--blanc);
+        }
+
+        .btn-secondary:hover {
+            background: var(--blanc);
+            color: var(--vert-imperial);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--vert-imperial);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* PRÉSENTATION */
+        .presentation {
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.05), rgba(76, 175, 80, 0.05));
+        }
+
+        .mission-box {
+            background: linear-gradient(135deg, var(--vert-imperial), var(--vert-menthe));
+            color: white;
+            padding: 4rem;
+            border-radius: 25px;
+            text-align: center;
+            margin: 3rem 0;
+            box-shadow: 0 10px 40px rgba(46, 125, 50, 0.3);
+        }
+
+        .mission-box h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--or-prestige);
+        }
+
+        .mission-box p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+
+        /* PRODUITS */
+        .produits-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .produit-card {
+            background: var(--blanc);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .produit-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .produit-image {
+            height: 280px;
+            background: linear-gradient(135deg, var(--vert-menthe), var(--vert-imperial));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .produit-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+        }
+
+        .produit-content {
+            padding: 2rem;
+        }
+
+        .produit-gamme {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--beige-terre);
+            color: var(--blanc);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .produit-card h3 {
+            color: var(--vert-imperial);
+            margin-bottom: 0.8rem;
+            font-size: 1.7rem;
+            font-weight: 900;
+        }
+
+        .produit-benefices {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-top: 1.2rem;
+        }
+
+        .benefice-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(46, 125, 50, 0.1);
+            color: var(--vert-imperial);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        /* BRANCHES */
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .branche-card {
+            background: linear-gradient(135deg, var(--vert-imperial) 0%, var(--vert-menthe) 100%);
+            color: var(--blanc);
+            padding: 3rem;
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .branche-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            transition: transform 0.6s;
+        }
+
+        .branche-card:hover {
+            transform: scale(1.05);
+        }
+
+        .branche-card:hover::before {
+            transform: translate(-25%, -25%);
+        }
+
+        .branche-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .branche-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            font-weight: 900;
+        }
+
+        .branche-card p {
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+        }
+
+        .branche-card ul {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .branche-card li {
+            padding: 0.6rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .branche-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--or-prestige);
+            font-weight: 900;
+            font-size: 1.3rem;
+        }
+
+        /* VISION 2030 */
+        .vision-section {
+            background: linear-gradient(to right, rgba(46, 125, 50, 0.08), rgba(76, 175, 80, 0.08));
+            padding: 6rem 5%;
+        }
+
+        .vision-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .vision-content h2 {
+            font-size: 3.5rem;
+            color: var(--vert-imperial);
+            margin-bottom: 2rem;
+            font-weight: 900;
+        }
+
+        .vision-content p {
+            font-size: 1.4rem;
+            line-height: 1.9;
+            margin-bottom: 3rem;
+        }
+
+        .objectifs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .objectif-item {
+            background: var(--blanc);
+            padding: 2rem;
+            border-radius: 20px;
+            border-left: 5px solid var(--or-prestige);
+            text-align: left;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .objectif-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .objectif-item strong {
+            display: block;
+            font-size: 1.4rem;
+            color: var(--vert-imperial);
+            margin-bottom: 0.8rem;
+        }
+
+        /* TÉMOIGNAGES */
+        .testimonials {
+            background: var(--vert-imperial);
+            color: var(--blanc);
+            padding: 6rem 5%;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--or-prestige);
+        }
+
+        /* CONTACT */
+        .contact-section {
+            background: var(--noir);
+            color: var(--blanc);
+            padding: 5rem 5%;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .contact-info h3 {
+            color: var(--or-prestige);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 900;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--vert-menthe);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--vert-imperial);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--blanc);
+        }
+
+        .social-icon:hover {
+            background: var(--or-prestige);
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0a0a0a;
+            color: #888;
+            text-align: center;
+            padding: 2.5rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-tagline {
+            color: var(--or-prestige);
+            font-weight: 900;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.5rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .vision-content h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo-circle">
+                    <img src="icon.ico" alt="Champignon" class="mushroom-icon" width="60" height="60">
+                </div>
+                <div>
+                    <div class="logo-text">CHAMPISO</div>
+                    <div class="tagline">La Force Naturelle</div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#produits">Produits</a></li>
+                <li><a href="#branches">Nos Branches</a></li>
+                <li><a href="#vision">Vision 2030</a></li>
+                <li><a href="#contact" class="cta-btn">Nous Contacter</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="accueil">
+        <div class="hero-content">
+            <h1>CHAMPISO GROUP</h1>
+            <p class="hero-tagline">La Force Naturelle</p>
+            <p class="hero-subtitle">Leader africain de la chaîne de valeur des champignons médicinaux et produits naturels de santé. De la terre à votre bien-être.</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">14+</span>
+                    <span class="stat-label">Années d'Excellence</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">25B</span>
+                    <span class="stat-label">FCFA Levée de Fonds</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50K</span>
+                    <span class="stat-label">Opportunités d'ici 2030</span>
+                </div>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#produits" class="btn-primary">Découvrir nos Produits</a>
+                <a href="#vision" class="btn-secondary">Notre Vision</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRÉSENTATION -->
+    <section class="presentation">
+        <h2 class="section-title">Qui sommes-nous ?</h2>
+        <p class="section-subtitle">
+            Entreprise agro-industrielle et nutraceutique pionnière au Togo et en Afrique de l'Ouest, nous révolutionnons la filière champignon et la nutrition santé.
+        </p>
+        
+        <div class="mission-box">
+            <h3>🎯 Notre Mission</h3>
+            <p>
+                Offrir au monde des produits naturels, innovants et thérapeutiques issus de la richesse agricole africaine, pour contribuer à l'alimentation équilibrée, au bien-être et à la prévention santé.
+            </p>
+        </div>
+    </section>
+
+    <!-- PRODUITS -->
+    <section id="produits" style="background: #f9f9f9;">
+        <h2 class="section-title">Nos Produits Phares</h2>
+        <p class="section-subtitle">Des solutions naturelles pour votre bien-être quotidien</p>
+        
+        <div class="produits-showcase">
+            <div class="produit-card">
+                <div class="produit-image" style="background: linear-gradient(135deg, #4CAF50, #2E7D32);">
+					<img src="ACTION.png" alt="Champignon" class="mushroom-icon" width="280" height="280">
+				</div>
+                <div class="produit-content">
+                    <span class="produit-gamme" style="background: #4CAF50;">ACTION</span>
+                    <h3>Détox & Équilibre</h3>
+                    <p>Purification naturelle et vitalité retrouvée grâce aux champignons médicinaux</p>
+                    <div class="produit-benefices">
+                        <span class="benefice-tag">💧 Détox</span>
+                        <span class="benefice-tag">🌿 100% Naturel</span>
+                        <span class="benefice-tag">⚖️ Équilibre</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produit-card">
+                <div class="produit-image" style="background: linear-gradient(135deg, #F44336, #D32F2F);">
+					<img src="STRONG.png" alt="Champignon" class="mushroom-icon" width="280" height="280">
+				</div>
+                <div class="produit-content">
+                    <span class="produit-gamme" style="background: #F44336;">STRONG</span>
+                    <h3>Force & Endurance</h3>
+                    <p>Performance physique et énergie maximale pour les guerriers modernes</p>
+                    <div class="produit-benefices">
+                        <span class="benefice-tag">⚡ Énergie</span>
+                        <span class="benefice-tag">💪 Force</span>
+                        <span class="benefice-tag">🏃 Performance</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produit-card">
+                <div class="produit-image" style="background: linear-gradient(135deg, #00BCD4, #0097A7);">
+					<img src="NUTRI_BC.png" alt="Champignon" class="mushroom-icon" width="280" height="280">
+				</div>
+                <div class="produit-content">
+                    <span class="produit-gamme" style="background: #00BCD4;">NUTRI-BC</span>
+                    <h3>Focus Mental</h3>
+                    <p>Clarté d'esprit et concentration optimale, sagesse ancestrale</p>
+                    <div class="produit-benefices">
+                        <span class="benefice-tag">🧠 Focus</span>
+                        <span class="benefice-tag">📚 Mémoire</span>
+                        <span class="benefice-tag">💡 Clarté</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produit-card">
+                <div class="produit-image" style="background: linear-gradient(135deg, #FF9800, #F57C00);">
+					<img src="ANAMIX.png" alt="Champignon" class="mushroom-icon" width="280" height="280">
+				</div>
+                <div class="produit-content">
+                    <span class="produit-gamme" style="background: #FF9800;">ANAMIX</span>
+                    <h3>Plaisir & Vitalité</h3>
+                    <p>Saveurs exotiques et bien-être naturel dans chaque gorgée</p>
+                    <div class="produit-benefices">
+                        <span class="benefice-tag">😋 Goût</span>
+                        <span class="benefice-tag">🌅 Vitalité</span>
+                        <span class="benefice-tag">🌴 Exotique</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produit-card">
+                <div class="produit-image" style="background: linear-gradient(135deg, #FFEB3B, #FDD835);">
+					<img src="ANANAS.png" alt="Champignon" class="mushroom-icon" width="280" height="280">
+				</div>
+                <div class="produit-content">
+                    <span class="produit-gamme" style="background: #FFEB3B; color: #333;">CH'OR! ANANAS</span>
+                    <h3>Fraîcheur Tropicale</h3>
+                    <p>L'énergie des fruits pour démarrer votre journée</p>
+                    <div class="produit-benefices">
+                        <span class="benefice-tag">🌞 Fraîcheur</span>
+                        <span class="benefice-tag">🥭 Fruits</span>
+                        <span class="benefice-tag">✨ Vitalité</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produit-card">
+                <div class="produit-image" style="background: linear-gradient(135deg, #E91E63, #C2185B);">
+					<img src="ENERGIE.png" alt="Champignon" class="mushroom-icon" width="280" height="280">
+				</div>
+                <div class="produit-content">
+                    <span class="produit-gamme" style="background: #E91E63;">CH'OR! ÉNERGIE</span>
+                    <h3>Boost Instantané</h3>
+                    <p>L'énergie naturelle quand vous en avez besoin</p>
+                    <div class="produit-benefices">
+                        <span class="benefice-tag">⚡ Dynamisme</span>
+                        <span class="benefice-tag">🔥 Performance</span>
+                        <span class="benefice-tag">💥 Boost</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRANCHES -->
+    <section id="branches">
+        <h2 class="section-title">Nos 4 Branches Stratégiques</h2>
+        <p class="section-subtitle">Un écosystème intégré de la production à la distribution</p>
+        
+        <div class="branches-grid">
+            <div class="branche-card">
+                <h3>Champiso Agro Mycotech</h3>
+                <p><strong>Production Agricole Durable</strong></p>
+                <ul>
+                    <li>Champignons comestibles et médicinaux</li>
+                    <li>Semences certifiées</li>
+                    <li>Fermes agroforestières</li>
+                    <li>Recherche et développement</li>
+                </ul>
+		
+            </div>
